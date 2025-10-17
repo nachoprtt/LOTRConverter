@@ -103,13 +103,10 @@ struct ContentView: View {
                         ExchangeInfo()
                     }
                 }
-                
             }
-//            .border(.blue)
+//            .border(.blue) is temporaly
         }
-            
-            
-            
+        
         }
     }
     
