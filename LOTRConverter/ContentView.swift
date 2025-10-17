@@ -104,7 +104,7 @@ struct ContentView: View {
                     }
                 }
             }
-//            .border(.blue)
+//            .border(.blue) is temporaly
         }
         
         }
