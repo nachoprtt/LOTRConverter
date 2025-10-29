@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct IconGrid: View {
-    @State var currency: Currency
+    @Binding var currency: Currency
     
     var body: some View {
         //  Currency icons
-        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]){
+        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
             ForEach(Currency.allCases) { currency in
                 if self.currency == currency {
                     CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
@@ -33,6 +33,16 @@ struct IconGrid: View {
     }
 }
 
-#Preview{
-    IconGrid(currency: .silverPiece)
+// ✅ Vista de previsualización corregida
+#Preview {
+    PreviewWrapper()
+}
+
+// Estructura auxiliar para manejar el @State en la preview
+private struct PreviewWrapper: View {
+    @State private var currency: Currency = .silverPiece
+    
+    var body: some View {
+        IconGrid(currency: $currency)
+    }
 }
